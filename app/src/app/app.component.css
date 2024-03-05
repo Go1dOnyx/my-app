@@ -1,5 +1,9 @@
-border-test {
-    border:1px solid black;
-    margin: 0.1rem;
-    padding: 2rem;
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+.mr-space-3 {
+    margin-right: 100px;
 }
