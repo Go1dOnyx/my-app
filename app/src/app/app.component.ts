@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'app';
-
+  readonly getAPI = 'http://localhost:5268/api/';
   constructor(private modalService: NgbModal) {
   }
   
