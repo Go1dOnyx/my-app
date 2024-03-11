@@ -7,15 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav';
-import { AboutComponent } from './about';
 import { HomeComponent } from './home';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    AboutComponent, 
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
