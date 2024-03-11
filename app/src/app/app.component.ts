@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +11,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'app';
-  readonly getAPI = 'http://localhost:5268/api/Account';
+  userEmail: string = '';
+  password: string = '';
 
-  constructor(private modalService: NgbModal, private http: HttpClient) {
+  constructor(private modalService: NgbModal, private authService: AuthService) {
   }
 
   public open(modal: any): void{
     this.modalService.open(modal);
   }
 
-  authUser() {
-    return this.http.get(this.getAPI+'/login');
+  login(): void{
+    this.authService.login(this.userEmail, this.password)
+    .subscribe(response =>{
+      //Handle successful login 
+      console.log('successful');
+    }, error => {
+      //Handle error
+       console.log('error');
+    });
   }
 }
