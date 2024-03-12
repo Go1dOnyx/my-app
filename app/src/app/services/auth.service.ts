@@ -11,7 +11,8 @@ export class AuthService {
     constructor(private httpClient: HttpClient){}
 
     login(userEmail: string, password: string): Observable<any> {
-        return this.httpClient.post<any>(`${this.url}/login`, {userEmail, password});
+        const body = {userEmail, password}
+        return this.httpClient.post<any>(`${this.url}/login`, {body});
     }
     update() {
 
