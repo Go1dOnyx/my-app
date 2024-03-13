@@ -21,14 +21,14 @@ export class AppComponent {
     this.modalService.open(modal);
   }
 
-  login(): void{
-    this.authService.login(this.userEmail, this.password)
-    .subscribe(response =>{
-      //Handle successful login 
-      console.log('successful');
-    }, error => {
-      //Handle error
-       console.log('error');
-    });
+  async login(): Promise<any> {
+    try {
+      await this.authService.login(this.userEmail, this.password);
+      console.log('Success');
+    }
+    catch(error) {
+      console.error('Error in login:', error);
+      console.log('Failure');
+    }
   }
 }
