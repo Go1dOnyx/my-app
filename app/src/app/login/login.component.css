@@ -1,0 +1,9 @@
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+.mr-space-3 {
+    margin-right: 25%;
+}
