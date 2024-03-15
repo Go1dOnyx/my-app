@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-app',
@@ -9,21 +10,25 @@ import { AuthService } from '../services/auth.service';
 
 export class LoginComponent {
     title = 'app';
+
     userAccount = {
     userEmail: '',
     password: ''
     };
-    
-    constructor(private authService: AuthService) {}
 
-    async login(): Promise<any> {
-        try {
-          await this.authService.login(this.userAccount.userEmail, this.userAccount.password);
-          console.log('Success');
-        }
-        catch(error) {
-          console.error(`Error in login: ${this.userAccount.userEmail} + ${this.userAccount.password}`, error);
-          console.log('Failure');
-        }
-      }
+    errorMessage: string = '';
+    
+    constructor(private authService: AuthService, private router: Router) {}
+
+    async login() {
+        this.authService.login(this.userAccount).subscribe(
+          response => {
+            this.router.navigate(['/home']);
+            console.log('Login Success: ', response);
+          },
+          error => {
+            this.errorMessage = error.error;
+          }
+        );
+    }
 }
