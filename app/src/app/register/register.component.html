@@ -1,0 +1,35 @@
+<div>
+    <div class="p-3 mb-5" style="border: 1px solid black; margin-left: 15rem;">
+        <h1 style="text-align: center;">Sign Up</h1>
+        <div class="p-5">
+            <form (ngSubmit)="register()">
+                <div class="form-group">
+                    <label for="username" class="mb-2">Username: </label>
+                    <input name="username" type="text" class="form-control w-50 mb-3" placeholder="username" [(ngModel)]="registerForm.username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="mb-2">Email: </label>
+                    <input name="email" type="email" class="form-control w-50 mb-3" placeholder="email" [(ngModel)]="registerForm.email" required> 
+                </div>
+                <div class="form-group">
+                    <label for="pass" class="mb-2">Password: </label>
+                    <input name="pass" type="password" class="form-control w-50 mb-3" placeholder="password" [(ngModel)]="registerForm.password">
+                </div>
+                <div class="form-group">
+                    <label for="firstN" class="mb-2">First Name: </label>
+                    <input name="firstN" type="text"class="form-control w-50 mb-3" placeholder="first name" [(ngModel)]="registerForm.firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="middleN" class="mb-2">Middle Name: </label>
+                    <input name="middleN" type="text" class="form-control w-50 mb-3" placeholder="middle name" [(ngModel)]="registerForm.middleName" >
+                </div>
+                <div class="form-group">
+                    <label for="lastN" class="mb-2">Last Name: </label>
+                    <input name="lastN" type="text" class="form-control w-50 mb-3" placeholder="last name" [(ngModel)]="registerForm.lastName" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-50">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

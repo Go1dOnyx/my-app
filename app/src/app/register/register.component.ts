@@ -9,29 +9,34 @@ import { Router } from "@angular/router";
  })
 
  export class RegisterComponent {
-    userModel = {
-        id: [null],
+    errorMessage: string = ''; //Holds error message 
+    
+     //Since the userId is automatically assigned, we dont need to include it and it can also cause interference
+     //This can prevent the user from creating a new account and getting a 400 bad request response
+    registerForm = { 
         username: '',
         email: '',
-        pass: '',
+        password: '',
         firstName: '',
         middleName: '',
         lastName: '',
+        status: true
     };
 
-    errorMessage: string = '';
-
     constructor(private authService: AuthService, private router: Router) {}
-
+    
     async register() {
-        this.authService.register(this.userModel).subscribe(
-            response => {
-                this.router.navigate(['/home']);
-                console.log('New user: ', response);
-            },
-            error => {
-                this.errorMessage = error.error;
-            }
-        );
+            //handle if the form that was submitted is valid
+            this.authService.register(this.registerForm).subscribe(
+                //handle API response through service
+                response => {
+                    this.router.navigate(['/home']);
+                    console.log('New user: ', response);
+                },
+                error => {
+                    //if user could not be successfully created
+                    this.errorMessage = error.error;
+                }
+            );
     }
  }

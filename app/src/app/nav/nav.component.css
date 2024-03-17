@@ -2,12 +2,12 @@
     color:white;
     font-weight: bold;
     padding: 0.5rem;
-    border-radius: 3px;
+    border-radius: 1px;
     text-decoration: underline;
 }
 .pt-zero {
     padding: 0;
 }
 .nav-hf {
-    height: 100vh;
+    height: 200vh;
 }
