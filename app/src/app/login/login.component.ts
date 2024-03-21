@@ -12,8 +12,8 @@ export class LoginComponent {
     title = 'app';
 
     userAccount = {
-    userEmail: '',
-    password: ''
+      userEmail: '',
+      password: ''
     };
 
     errorMessage: string = '';
@@ -23,8 +23,11 @@ export class LoginComponent {
     async login() {
         this.authService.login(this.userAccount).subscribe(
           response => {
-            this.router.navigate(['/home']);
+            console.log('id: ', response.UserId);
             console.log('Login Success: ', response);
+
+            this.authService.setAuthTokenId(response.UserId);
+            this.router.navigate(['/home']);
           },
           error => {
             this.errorMessage = error.error;

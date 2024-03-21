@@ -28,7 +28,7 @@ import { RegisterComponent } from './register';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    routesNav,
+    routesNav
   ],
   providers: [],
   bootstrap: [AppComponent]
