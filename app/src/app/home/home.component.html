@@ -1,3 +1,21 @@
-<div>
-    <h1>Welcome {{this.userModel.FirstName}}!</h1>
+<div style="border: 1px solid black;margin-left: 13rem;padding: 1.5rem;overflow: hidden;">
+    <header>
+        <div>
+            <h1>Welcome {{this.userModel.FirstName}}!</h1>
+        </div>
+        <div class="float-left">
+            <h5>Personal Info</h5>
+            <p>First Name: {{this.userModel.FirstName}}</p>
+            <p>Middle Name: {{this.userModel.MiddleName}}</p>
+            <p>Last Name: {{this.userModel.LastName}}</p>
+        </div>
+        <div class="float-right">
+            <h5>Account Info</h5>
+            <p>Email: {{this.userModel.Email}}</p>
+            <p>Username: {{this.userModel.Username}}</p>
+            <p *ngIf="this.userModel.Status">Status: Active</p>
+            <p *ngIf="!this.userModel.Status">Status: Not Active or Suspended</p>
+            <a href="#">Settings</a>
+        </div>
+    </header>
 </div>

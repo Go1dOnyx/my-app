@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 import { Observable } from "rxjs";
 import { User } from "../services/user";
-import { UrlSegment } from "@angular/router";
 
 @Component({
     selector: "app-home",
@@ -19,13 +18,14 @@ export class HomeComponent implements OnInit {
     }
 
     getInfo() {
-        this.authService.getUserById().subscribe(user => {
-                this.userModel = user;
-                console.log("id: ", this.userModel.UserId);
-                console.log("User info: ", this.userModel);
-        }, 
-        error => {
-            console.log("Couldn't recieve user: ", error.error);
+        this.authService.getUserById().subscribe(
+            user => {
+                    this.userModel = user;
+                    console.log("id: ", this.userModel.UserId);
+                    console.log("User info: ", this.userModel);
+            }, 
+            error => {
+                console.log("Couldn't recieve user: ", error.error);
         });
     }
 }

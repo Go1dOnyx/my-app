@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable} from "rxjs";
 import { map } from "rxjs";
 
@@ -22,6 +22,14 @@ export class AuthService {
         return this.httpClient.get<any>(`${this.url}/${this.tokenID}`)
         .pipe(
             map((response: any) => {
+                return response;
+            })
+        );
+    }
+    getAllUsers(): Observable<any>{
+        return this.httpClient.get<any>(`${this.url}`)
+        .pipe(
+            map((response: any)=> {
                 return response;
             })
         );
