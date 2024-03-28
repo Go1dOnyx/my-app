@@ -8,7 +8,7 @@ import { map } from "rxjs";
 })
 export class AuthService {
     private url = 'http://localhost:5268/api/Account';
-    private tokenID: any; //default null 
+    public tokenID: any; //default null 
 
     constructor(private httpClient: HttpClient){}
 

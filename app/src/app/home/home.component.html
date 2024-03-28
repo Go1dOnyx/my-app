@@ -1,16 +1,16 @@
-<div style="border: 1px solid black;margin-left: 13rem;padding: 1.5rem;overflow: hidden;">
+<div class="shadow p-3 mb-5 bg-body rounded" style="margin-left: 13rem;padding: 2rem;overflow: hidden;">
     <header>
         <div>
             <h1>Welcome {{this.userModel.FirstName}}!</h1>
         </div>
         <div class="float-left">
-            <h5>Personal Info</h5>
+            <h5 style="color: rgb(255, 0, 13);">Personal Info</h5>
             <p>First Name: {{this.userModel.FirstName}}</p>
             <p>Middle Name: {{this.userModel.MiddleName}}</p>
             <p>Last Name: {{this.userModel.LastName}}</p>
         </div>
         <div class="float-right">
-            <h5>Account Info</h5>
+            <h5 style="color: rgb(255, 0, 13);">Account Info</h5>
             <p>Email: {{this.userModel.Email}}</p>
             <p>Username: {{this.userModel.Username}}</p>
             <p *ngIf="this.userModel.Status">Status: Active</p>
@@ -18,4 +18,12 @@
             <a href="#">Settings</a>
         </div>
     </header>
+</div>
+<div style="border: 1px solid black;margin-left: 13rem;padding: 1.5rem;overflow: hidden;">
+    <ul>
+        <li *ngFor="let item of this.payModels">
+            <p>{{item.PaymentId}}</p> 
+            <p>{{item.Amount}}</p>
+        </li>
+    </ul>
 </div>

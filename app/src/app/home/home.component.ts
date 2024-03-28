@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../services/auth.service";
-import { Observable } from "rxjs";
+import { PaymentService } from "../services/payment.service";
+import { Payment } from "../services/payment";
 import { User } from "../services/user";
 
 @Component({
@@ -10,14 +11,16 @@ import { User } from "../services/user";
 })
 export class HomeComponent implements OnInit {
     public userModel: User = {} as User; //Initilize an empty interface instance
+    public payModels: Payment[] = [];
 
-    constructor(private authService: AuthService){}
+    constructor(private authService: AuthService, private payService: PaymentService){}
 
     ngOnInit(): void {
-        this.getInfo();
+        this.getUserInfo();
+        this.getUserPayments();
     }
 
-    getInfo() {
+    getUserInfo() {
         this.authService.getUserById().subscribe(
             user => {
                     this.userModel = user;
@@ -27,5 +30,18 @@ export class HomeComponent implements OnInit {
             error => {
                 console.log("Couldn't recieve user: ", error.error);
         });
+    }
+    getUserPayments(){
+        this.payService.getAllFromId(this.authService.tokenID).subscribe(
+            payList =>{
+                this.payModels = payList;
+                console.log("User Id: ", this.authService.tokenID);
+                console.log("List : ", this.payModels);
+            },
+            error => {
+                console.log("User Id: ", this.authService.tokenID);
+                console.log("Couldn't recieve payments: ", error.error);
+            }
+        )
     }
 }
