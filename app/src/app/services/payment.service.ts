@@ -54,6 +54,7 @@ export class PaymentService {
         )
     }
     getAllFromId(id: any): Observable<any>{
+        //any[]?
         return this.httpClient.get<any>(`${this.url}/getall/` + id)
         .pipe(
             map((response: any) => {

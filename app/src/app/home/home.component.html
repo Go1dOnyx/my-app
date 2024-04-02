@@ -15,11 +15,14 @@
             <p>Username: {{this.userModel.Username}}</p>
             <p *ngIf="this.userModel.Status">Status: Active</p>
             <p *ngIf="!this.userModel.Status">Status: Not Active or Suspended</p>
-            <a href="#">Settings</a>
+            <button class="btn btn-primary">Settings</button>
         </div>
     </header>
 </div>
 <div style="border: 1px solid black;margin-left: 13rem;padding: 1.5rem;overflow: hidden;">
+    <div>
+        <button class="btn btn-success">Add Payments</button>
+    </div>
     <ul>
         <li *ngFor="let item of this.payModels">
             <p>{{item.PaymentId}}</p> 

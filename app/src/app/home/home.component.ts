@@ -11,7 +11,7 @@ import { User } from "../services/user";
 })
 export class HomeComponent implements OnInit {
     public userModel: User = {} as User; //Initilize an empty interface instance
-    public payModels: Payment[] = [];
+    public payModels: any = [];
 
     constructor(private authService: AuthService, private payService: PaymentService){}
 
@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
     }
     getUserPayments(){
         this.payService.getAllFromId(this.authService.tokenID).subscribe(
-            payList =>{
+            //error storing list of objects try to adjust payList to payList[] or the services :any to :Payment[] "interface" or any[]
+            payList => {
                 this.payModels = payList;
                 console.log("User Id: ", this.authService.tokenID);
                 console.log("List : ", this.payModels);
