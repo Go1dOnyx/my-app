@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Payment } from "./payment";
 import { map } from "rxjs";
 
 @Injectable({
@@ -37,10 +38,10 @@ export class PaymentService {
             })
         )
     }
-    getPaymentById(): Observable<any>{
-        return this.httpClient.get<any>(`${this.url}/` + this.paymentTokenId)
+    getPaymentById(): Observable<Payment[]>{
+        return this.httpClient.get<Payment[]>(`${this.url}/` + this.paymentTokenId)
         .pipe(
-            map((response: any) => {
+            map((response: Payment[]) => {
                 return response;
             })
         )
@@ -53,7 +54,7 @@ export class PaymentService {
             })
         )
     }
-    getAllFromId(id: any): Observable<any>{
+    getAllFromId(id: any): Observable<[]>{
         //any[]?
         return this.httpClient.get<any>(`${this.url}/getall/` + id)
         .pipe(
