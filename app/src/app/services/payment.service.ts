@@ -38,10 +38,10 @@ export class PaymentService {
             })
         )
     }
-    getPaymentById(): Observable<Payment[]>{
-        return this.httpClient.get<Payment[]>(`${this.url}/` + this.paymentTokenId)
+    getPaymentById(): Observable<any>{
+        return this.httpClient.get<any>(`${this.url}/` + this.paymentTokenId)
         .pipe(
-            map((response: Payment[]) => {
+            map((response: any) => {
                 return response;
             })
         )
@@ -54,11 +54,11 @@ export class PaymentService {
             })
         )
     }
-    getAllFromId(id: any): Observable<[]>{
+    getAllFromId(id: any): Observable<Payment[]>{
         //any[]?
-        return this.httpClient.get<any>(`${this.url}/getall/` + id)
+        return this.httpClient.get<Payment[]>(`${this.url}/getall/` + id)
         .pipe(
-            map((response: any) => {
+            map((response: Payment[]) => {
                 return response;
             })
         )

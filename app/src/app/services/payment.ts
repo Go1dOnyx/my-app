@@ -1,13 +1,13 @@
 import { DecimalPipe } from "@angular/common";
 
 export interface Payment {
-    PaymentId: null,
-    UserID: null,
-    CardNum: null,
-    CardholderName: '',
+    PaymentId: number,
+    UserID: number,
+    CardNum: number | null,
+    CardholderName: string ,
     ExpirationDate: any,
-    SecurityNum: null,
-    Amount: any,
-    CardType: '',
-    Status: null
+    SecurityNum: number,
+    Amount: number,
+    CardType: string| null,
+    Status: boolean
 }
