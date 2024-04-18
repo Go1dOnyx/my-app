@@ -27,6 +27,7 @@ export class LoginComponent {
             console.log('Login Success: ', response);
 
             this.authService.setAuthTokenId(response.UserId);
+            localStorage.setItem('userID', response.UserId);
             this.router.navigate(['/home']);
           },
           error => {

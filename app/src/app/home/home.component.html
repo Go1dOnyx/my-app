@@ -8,6 +8,7 @@
             <p>First Name: {{this.userModel.FirstName}}</p>
             <p>Middle Name: {{this.userModel.MiddleName}}</p>
             <p>Last Name: {{this.userModel.LastName}}</p>
+            <p>User ID: {{this.userModel.UserId}}</p>
         </div>
         <div class="float-right">
             <h5 style="color: rgb(255, 0, 13);">Account Info</h5>
@@ -25,8 +26,10 @@
     </div>
     <ul>
         <li *ngFor="let item of this.payModels">
-            <p>{{item.PaymentId}}</p> 
-            <p>{{item.Amount}}</p>
+            <p>Method ID: {{item.PaymentId}}</p>
+            <p>Name: {{item.CardholderName}}</p>
+            <p>Amount: ${{item.Amount}}</p>
+            <p>Expriation Date: {{item.ExpirationDate}}</p>
         </li>
     </ul>
 </div>

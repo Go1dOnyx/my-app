@@ -24,20 +24,29 @@ export class HomeComponent implements OnInit {
         this.authService.getUserById().subscribe(
             user => {
                     this.userModel = user;
-                    console.log("id: ", this.userModel.UserId);
-                    console.log("User info: ", this.userModel);
             }, 
             error => {
                 console.log("Couldn't recieve user: ", error.error);
         });
     }
     getUserPayments(){
-        this.payService.getAllFromId(this.authService.tokenID).subscribe(
-            //error storing list of objects try to adjust payList to payList[] or the services :any to :Payment[] "interface" or any[]
+        let userID = localStorage.getItem('userID');
+        console.log('---');
+        console.log(userID);
+        console.log('---');
+        this.payService.getAllFromId(userID).subscribe(
             payList => {
-                this.payModels = payList;
-                console.log("User Id: ", this.authService.tokenID);
-                console.log("List : ", this.payModels);
+                this.payModels = payList.map( obj => ({
+                    PaymentId: obj.PaymentId,
+                    UserID: obj.UserID,
+                    CardNum: obj.CardNum,
+                    CardholderName: obj.CardholderName,
+                    ExpirationDate: obj.ExpirationDate,
+                    SecurityNum: obj.SecurityNum,
+                    Amount: obj.Amount,
+                    CardType: obj.CardType,
+                    Status: obj.Status
+                }));
             },
             error => {
                 console.log("User Id: ", this.authService.tokenID);

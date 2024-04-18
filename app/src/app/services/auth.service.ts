@@ -19,7 +19,7 @@ export class AuthService {
         return this.httpClient.post<any>(`${this.url}/register/`, userModel);
     }
     getUserById(): Observable<any> {
-        return this.httpClient.get<any>(`${this.url}/${this.tokenID}`)
+        return this.httpClient.get<any>(`${this.url}/${localStorage.getItem('userID')}`)
         .pipe(
             map((response: any) => {
                 return response;
