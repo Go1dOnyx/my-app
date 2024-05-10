@@ -24,9 +24,11 @@
     <div>
         <button class="btn btn-success">Add Payments</button>
     </div>
+    <br>
     <ul>
-        <li *ngFor="let item of this.payModels">
-            <p>Method ID: {{item.PaymentId}}</p>
+        <li style="list-style-type: none;" class="shadow p-3 mb-5 bg-body rounded" *ngFor="let item of this.payModels">
+            <p>ID: {{item.PaymentId}}</p>
+            <p>Type: {{item.CardType}}</p>
             <p>Name: {{item.CardholderName}}</p>
             <p>Amount: ${{item.Amount}}</p>
             <p>Expriation Date: {{item.ExpirationDate}}</p>
